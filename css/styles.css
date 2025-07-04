@@ -677,6 +677,39 @@ body.dark .hero {
 .footer-links a:hover {
     color: var(--primary-color);
 }
+/* Bottom scroll button styling */
+.hero-scroll.next-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+/* Scroll indicator inside the section (not fixed) */
+.section-scroll {
+    margin-top: 4rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.scroll-indicator {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.scroll-indicator i {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+    animation: bounce 2s infinite;
+}
+
+.page {
+    position: relative;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

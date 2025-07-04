@@ -143,20 +143,20 @@ function closeMobileMenu() {
 
 // Smooth Scrolling for Internal Links
 function initializeSmoothScrolling() {
-    // Handle hero scroll indicator
-    const heroScroll = document.querySelector('.hero-scroll');
-    if (heroScroll) {
-        heroScroll.addEventListener('click', function() {
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                showPage('about');
-                updateActiveNavLink('about');
-                history.pushState({ page: 'about' }, '', '#about');
+    // Scroll indicators that navigate to next page
+    const scrollIndicators = document.querySelectorAll('.next-scroll');
+    scrollIndicators.forEach(el => {
+        el.addEventListener('click', function () {
+            const targetPage = this.getAttribute('data-next');
+            if (targetPage) {
+                showPage(targetPage);
+                updateActiveNavLink(targetPage);
+                history.pushState({ page: targetPage }, '', `#${targetPage}`);
             }
         });
-    }
-    
-    // Handle footer links
+    });
+
+    // Footer links
     const footerLinks = document.querySelectorAll('.footer-links a');
     footerLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -168,6 +168,8 @@ function initializeSmoothScrolling() {
         });
     });
 }
+
+
 
 // Form Handling
 function initializeFormHandling() {

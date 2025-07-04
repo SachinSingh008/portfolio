@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // Force dark mode on page load
-    document.body.classList.add('dark');
+    // document.body.classList.add('dark');
 
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {

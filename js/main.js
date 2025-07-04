@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         initializeNavigation();
         initializeSmoothScrolling();
+        initializeLogoNavigation();
         initializeFormHandling();
         initializeAnimations();
         initializeMobileMenu();
@@ -169,6 +170,17 @@ function initializeSmoothScrolling() {
     });
 }
 
+function initializeLogoNavigation() {
+    const logo = document.getElementById('nav-home');
+    if (logo) {
+        logo.style.cursor = 'pointer';
+        logo.addEventListener('click', () => {
+            showPage('home');
+            updateActiveNavLink('home');
+            history.pushState({ page: 'home' }, '', '#home');
+        });
+    }
+}
 
 
 // Form Handling

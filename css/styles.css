@@ -1290,3 +1290,27 @@ body.dark .floating-element {
     color: var(--accent-color);
     opacity: 0.4;
 }
+/* Align theme toggle icon with hamburger */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+.theme-toggle i {
+    font-size: 1.25rem; /* Match hamburger bar height */
+    color: var(--text-primary);
+}

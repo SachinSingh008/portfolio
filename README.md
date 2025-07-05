@@ -51,8 +51,8 @@ Welcome to my personal portfolio! This project is a clean, responsive, and anima
 │   ├── projects.png
 │   └── contact.png
 └── README.md
-```bash
-
+ ```
+ 
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript (Vanilla)

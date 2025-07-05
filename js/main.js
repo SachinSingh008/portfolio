@@ -375,7 +375,7 @@ function initializeTypingEffect() {
     const nameElement = document.querySelector('.hero-title .name');
     if (nameElement) {
         const originalText = nameElement.textContent;
-        const titles = ['Computer Engineer', 'Software Developer', 'Full Stack Developer', 'Problem Solver'];
+        const titles = ['Computer Engineer', 'Software Developer', 'Full Stack Developer', 'Problem Solver','Sachin Ajeetkumar Singh', 'Data Engineer', 'Programmer', 'Web Developer'];
         let titleIndex = 0;
         
         function typeTitle() {

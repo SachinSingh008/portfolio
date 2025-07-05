@@ -6,8 +6,7 @@ Welcome to my personal portfolio! This project is a clean, responsive, and anima
 
 ## 🌐 Live Demo
 
-👉 [Click here to view the portfolio](https://your-deployed-site-link.com)  
-📌 *(Replace the link with your actual deployed URL)*
+👉 [Click here to view the portfolio](https://sachinsingh008.github.io/portfolio/)  
 
 ---
 
@@ -16,8 +15,6 @@ Welcome to my personal portfolio! This project is a clean, responsive, and anima
 | Home Page | About Page | Projects Page | Contact Page |
 |-----------|------------|---------------|--------------|
 | ![Home](screenshots/home.png) | ![About](screenshots/about.png) | ![Projects](screenshots/projects.png) | ![Contact](screenshots/contact.png) |
-
-> 📁 *Put all these screenshots in a `/screenshots/` folder in your repo.*
 
 ---
 
@@ -54,6 +51,8 @@ Welcome to my personal portfolio! This project is a clean, responsive, and anima
 │   ├── projects.png
 │   └── contact.png
 └── README.md
+```bash
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript (Vanilla)

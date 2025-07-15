@@ -955,6 +955,9 @@ html {
     z-index: 9999;
     transition: all 0.8s ease;
 }
+.hidden {
+    display: none;
+}
 
 .loading-screen.hidden {
     opacity: 0;

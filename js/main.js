@@ -504,113 +504,30 @@ window.PortfolioWebsite = {
     closeMobileMenu,
     showNotification
 };
-// Certificates Data (Customize This)///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const certificateData = [
-        {
-            title: "Power BI and Tableau for Data Visualization",
-            image: "certificates/BI.jpg",
-            link: "https://www.udemy.com/certificate/UC-a0c178a4-ddd8-40f0-bb56-47ea6df27fc8/",
-            description: "Learned to create compelling dashboards using Power BI and Tableau for business intelligence."
-        },
-        {
-            title: "Machine Learning - Fundamentals of Python Machine Learning",
-            image: "certificates/ml.jpg",
-            link: "https://www.udemy.com/certificate/UC-eb7f069b-838d-4555-bf6f-0bcb670c5467/",
-            description: "Gained hands-on experience in machine learning with Python, covering key algorithms and models."
-        },
-        {
-            title: "Docker Kubernetes MasterClass: DevOps from Scratch",
-            image: "certificates/docker.jpg",
-            link: "https://www.udemy.com/certificate/UC-aec002b7-1211-4ab8-99d1-c48e410ab615/",
-            description: "Mastered containerization, Docker basics, and orchestration using Kubernetes for DevOps pipelines."
-        },
-        {
-            title: "Python And Django Framework And HTML5 Stack Complete Course",
-            image: "certificates/django.jpg",
-            link: "https://www.udemy.com/certificate/UC-938e9819-c64f-4fec-b791-479683bb2420/",
-            description: "Developed dynamic web apps using Django, Python, HTML5, and front-end technologies."
-        },
-        {
-            title: "The Complete Full-Stack Web Development Bootcamp",
-            image: "certificates/fullweb.jpg",
-            link: "https://www.udemy.com/certificate/UC-accfd12c-05c1-49a5-8455-c4466eae1db6/",
-            description: "Built full-stack applications using HTML, CSS, JavaScript, Node.js, MongoDB, and more."
-        },
-        {
-            title: "React Crash Course: From Zero to Hero",
-            image: "certificates/react.jpg",
-            link: "https://www.udemy.com/certificate/UC-f84b7824-a0dd-4326-8b81-a3a7e19b1208/",
-            description: "Built responsive single-page applications with React, JSX, and component-based architecture."
-        },
-        {
-            title: "Java Programming Masterclass - Beginner to Master",
-            image: "certificates/java.jpg",
-            link: "https://www.udemy.com/certificate/UC-e06e68bb-3431-4b9e-8eb6-0e197ca682af/",
-            description: "Learned Java fundamentals, OOP concepts, and applied them in practical coding projects."
-        },
-        {
-            title: "Master ChatGPT: Transform Your Life with AI Chatbots",
-            image: "certificates/gpt.jpg",
-            link: "https://www.udemy.com/certificate/UC-a5585a7e-b898-4ef7-a0e6-a3d5a987bf9c/",
-            description: "Explored ChatGPT capabilities and use cases to automate tasks and build intelligent bots."
-        },
-        {
-            title: "Learn C++ Programming from Beginning to OOP",
-            image: "certificates/c++.jpg",
-            link: "https://www.udemy.com/certificate/UC-5c0c5ecd-2277-4a02-b266-0adbf5d4be92/",
-            description: "Mastered C++ syntax, functions, and object-oriented programming from scratch."
-        }
-
-];
-
-let visibleCerts = 0;
-const certsPerBatch = 6;
-
-function renderCertificates() {
-    const grid = document.getElementById('certificate-grid');
-    const count = document.getElementById('certificate-count');
-    const button = document.getElementById('show-more-certificates');
-    if (!grid || !count || !button) return;
-
-    const toRender = certificateData.slice(visibleCerts, visibleCerts + certsPerBatch);
-    toRender.forEach(cert => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-        card.innerHTML = `
-            <div class="project-image">
-                <div class="project-bg">
-                    <img src="${cert.image}" alt="${cert.title}" />
-                </div>
-                <div class="project-overlay">
-                    <div class="project-links">
-                        <a href="${cert.link}" class="project-link" title="Verify" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-content">
-                <div class="project-header">
-                    <h3 class="name project-title">${cert.title}</h3>
-                </div>
-                <p class="project-description">${cert.description}</p>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
-
-    visibleCerts += certsPerBatch;
-    count.textContent = certificateData.length;
-
-    if (visibleCerts >= certificateData.length) {
-        button.style.display = 'none';
-    }
-}
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', () => {
+    const certCount = document.getElementById('certificate-count');
+    const allCards = document.querySelectorAll('.certificate-card');
     const button = document.getElementById('show-more-certificates');
-    if (button) {
-        button.addEventListener('click', renderCertificates);
-        renderCertificates(); // initial load
+
+    const totalCertificates = allCards.length;
+    certCount.textContent = totalCertificates;
+
+    let visibleCount = 6;
+
+    function showMoreCertificates() {
+        const hidden = Array.from(allCards).filter((card, i) => i >= visibleCount && card.classList.contains('hidden'));
+        const toShow = hidden.slice(0, 9); // Show 9 more at a time
+
+        toShow.forEach(card => card.classList.remove('hidden'));
+
+        visibleCount += toShow.length;
+
+        if (visibleCount >= totalCertificates) {
+            button.style.display = 'none';
+        }
     }
+
+    button.addEventListener('click', showMoreCertificates);
 });

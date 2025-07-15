@@ -504,30 +504,31 @@ window.PortfolioWebsite = {
     closeMobileMenu,
     showNotification
 };
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ================= Certificates Section =================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Show More Certificates functionality
     const certCount = document.getElementById('certificate-count');
     const allCards = document.querySelectorAll('.certificate-card');
     const button = document.getElementById('show-more-certificates');
 
-    const totalCertificates = allCards.length;
-    certCount.textContent = totalCertificates;
+    if (certCount) {
+        certCount.textContent = allCards.length;
+    }
 
     let visibleCount = 6;
 
-    function showMoreCertificates() {
-        const hidden = Array.from(allCards).filter((card, i) => i >= visibleCount && card.classList.contains('hidden'));
-        const toShow = hidden.slice(0, 9); // Show 9 more at a time
+    if (button) {
+        button.addEventListener('click', () => {
+            const hiddenCards = Array.from(allCards).filter((card, i) => i >= visibleCount && card.classList.contains('hidden'));
+            const toShow = hiddenCards.slice(0, 9); // Show 9 more
 
-        toShow.forEach(card => card.classList.remove('hidden'));
+            toShow.forEach(card => card.classList.remove('hidden'));
+            visibleCount += toShow.length;
 
-        visibleCount += toShow.length;
-
-        if (visibleCount >= totalCertificates) {
-            button.style.display = 'none';
-        }
+            if (visibleCount >= allCards.length) {
+                button.style.display = 'none';
+            }
+        });
     }
-
-    button.addEventListener('click', showMoreCertificates);
 });
